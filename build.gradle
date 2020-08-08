@@ -12,7 +12,7 @@ plugins {
     id 'maven'
 }
 group 'us.tedstar'
-version '1.0'
+version '1.0.1'
 
 repositories {
     // Use jcenter for resolving dependencies.

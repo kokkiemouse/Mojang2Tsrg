@@ -12,7 +12,9 @@ import java.util.stream.Collectors;
 public class Mojang2Tsrg {
     /**
      * class map
+     * @deprecated Not recommended for internal variables
      */
+    @Deprecated
     public Map<String, String> classMap;
     /**
      * constructor
@@ -25,7 +27,9 @@ public class Mojang2Tsrg {
      * type converter
      * @param type type
      * @return converted type
+     * @deprecated Not recommended because it is an internal API.
      */
+    @Deprecated
     public String typeToDescriptor(String type) {
         if(type.endsWith("[]"))
             return "[" + typeToDescriptor(type.substring(0, type.length() - 2));
@@ -147,7 +151,9 @@ public class Mojang2Tsrg {
      * main entrypoint
      * @param args args
      * @throws IOException io err
+     * @deprecated Not recommended as it is an entry point
      */
+    @Deprecated
     public static void main(String[] args) throws IOException {
         File map = new File(args[0]);
         File out = new File(args[1]);
