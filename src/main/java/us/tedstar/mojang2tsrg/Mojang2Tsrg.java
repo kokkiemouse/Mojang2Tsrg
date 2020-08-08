@@ -6,13 +6,26 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * proguard to tsrg
+ */
 public class Mojang2Tsrg {
+    /**
+     * class map
+     */
     public Map<String, String> classMap;
-
+    /**
+     * constructor
+     */
     public Mojang2Tsrg() {
         classMap = new HashMap<>();
     }
 
+    /**
+     * type converter
+     * @param type type
+     * @return converted type
+     */
     public String typeToDescriptor(String type) {
         if(type.endsWith("[]"))
             return "[" + typeToDescriptor(type.substring(0, type.length() - 2));
@@ -33,6 +46,11 @@ public class Mojang2Tsrg {
         }
     }
 
+    /**
+     * Load Class
+     * @param map map file
+     * @throws IOException IO Err
+     */
     public void loadClasses(File map) throws IOException {
         FileReader reader = new FileReader(map);
         BufferedReader buf = new BufferedReader(reader);
@@ -64,6 +82,12 @@ public class Mojang2Tsrg {
         reader.close();
     }
 
+    /**
+     * write to tsrg
+     * @param map map file
+     * @param out tsrg file
+     * @throws IOException io err
+     */
     public void writeTsrg(File map, File out) throws IOException {
         FileReader reader = new FileReader(map);
         FileWriter writer = new FileWriter(out);
@@ -119,6 +143,11 @@ public class Mojang2Tsrg {
         reader.close();
     }
 
+    /**
+     * main entrypoint
+     * @param args args
+     * @throws IOException io err
+     */
     public static void main(String[] args) throws IOException {
         File map = new File(args[0]);
         File out = new File(args[1]);
